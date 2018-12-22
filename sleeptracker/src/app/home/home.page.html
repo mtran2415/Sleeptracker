@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Sleep Logger
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-list lines="full">
+      <ion-list-header>Log Your Overnight Sleep:</ion-list-header>
+    <ion-item>
+        <ion-label><ion-icon name="calendar"></ion-icon> Day</ion-label>
+        <ion-datetime [(ngModel)]="day" display-format="MMMM DD, YYYY">
+        </ion-datetime>
+    </ion-item>
+     <ion-item>
+      <ion-label><ion-icon name="moon"></ion-icon> Start Sleep</ion-label>
+      <ion-datetime [(ngModel)]="start_sleep" display-format="h:mm a">
+      </ion-datetime>
+     </ion-item>
+     <ion-item>
+      <ion-label><ion-icon name="sunny"></ion-icon> End Sleep</ion-label>
+      <ion-datetime [(ngModel)]="end_sleep" display-format="h:mm a">
+      </ion-datetime>
+     </ion-item>
+  </ion-list>
+
+  <ion-grid>
+      <ion-row>
+          <ion-col align-self-start>
+            </ion-col>
+          <ion-col align-self-center>
+              <ion-button size="large" color="tertiary" (click)="checkMissing()" (click)="logOvernightData()">Log Overnight Sleep</ion-button>
+          </ion-col>
+          <ion-col align-self-end>
+            </ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <ion-list-header>Most Recent Log:</ion-list-header>
+  <ion-card color="medium" *ngIf="previousLog == undefined">
+      <ion-card-content>
+          <br>
+          <br>
+          <br>
+        </ion-card-content>
+    </ion-card>
+  
+  <ion-card color="medium" *ngIf="previousLog !== undefined">
+      <ion-card-content>
+          {{previousLog.dateString()}}<br>
+          Slept for {{previousLog.summaryString()}}<br>
+          From {{previousLog.timeRange()}}<br>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+        <ion-tab tab="log-overnight-data"></ion-tab>
+        <ion-tab tab="log-sleepiness-data"></ion-tab>
+        <ion-tab tab="view-logged-data"></ion-tab>
+      
+        <ion-tab-bar slot="bottom">
+      
+          <ion-tab-button tab="log-overnight-data" href="home">
+              <ion-icon name="moon"></ion-icon>
+              <ion-label color="light">Log Overnight Sleep</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="log-sleepiness-data" href="log-sleepiness">
+              <ion-icon name="happy"></ion-icon>
+              <ion-label color="light">Log Sleepiness</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="view-logged-data" href="ViewLoggedData">
+              <ion-icon name="journal"></ion-icon>
+              <ion-label color="light">View Logs</ion-label>
+          </ion-tab-button>
+      
+        </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+

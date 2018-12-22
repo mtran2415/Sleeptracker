@@ -1,0 +1,37 @@
+ion-select {
+    --color: black;
+}
+
+ion-range {
+    --bar-background: var(--ion-color-light);
+}
+
+ion-grid {
+    --ion-grid-padding: 0px;
+}
+
+ion-list-header {
+    color: var(--ion-color-light);
+    font-size: 25px !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+ion-list {
+    margin: 0px;
+}
+
+ion-button {
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.list_head {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.rating_table {
+    margin-top: 20px;
+}
+

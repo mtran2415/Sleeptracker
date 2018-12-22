@@ -1,0 +1,25 @@
+ion-button {
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+ion-item {
+    ion-label {
+        font-family: Arial, Helvetica, sans-serif !important;
+    }
+}
+
+ion-grid {
+    width: 100%;
+}
+
+ion-datetime {
+    --placeholder-color: white;
+}
+
+ion-list-header {
+    color: var(--ion-color-light);
+    font-size: 25px !important;
+    font-weight: bold;
+    text-align: center;
+}

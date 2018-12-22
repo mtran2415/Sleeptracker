@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sleep Logger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list-header>Overnight Sleep Logs</ion-list-header>
+  
+  <ion-grid>
+      <ion-row>
+          <ion-col align-self-start>
+            </ion-col>
+          <ion-col align-self-center>
+              <ion-button size="small" color="tertiary" id="displayOvernight" (click)="displayOvernightLogs()">Hide Overnight Logs</ion-button>
+          </ion-col>
+          <ion-col align-self-end>
+            </ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <ng-container *ngIf="overnightBool == true">
+    <ion-card color="medium" *ngFor="let data of overnightSleepData; let i = index">
+      <ion-card-header>Overnight Sleep Log {{i+1}}</ion-card-header>
+      <ion-card-content>
+        <strong>Timestamp:</strong> {{data.getLoggedTime()}} <br>
+        <br>
+        {{data.dateString()}} <br>
+        Slept for {{data.summaryString()}} from<br>
+        {{data.timeRange()}}
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ion-list-header>Sleepiness Logs</ion-list-header>
+  
+
+  <ion-grid>
+      <ion-row>
+          <ion-col align-self-start>
+            </ion-col>
+          <ion-col align-self-center>
+              <ion-button size="small" color="tertiary" id="displaySleepiness" (click)="displaySleepinessLogs()">Hide Sleepiness Logs</ion-button>
+          </ion-col>
+          <ion-col align-self-end>
+            </ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <ng-container *ngIf="sleepinessBool == true">
+    <ion-card color="medium" *ngFor="let sleep of sleepinessData; let j = index">
+        <ion-card-header>Sleepiness Log {{j+1}}</ion-card-header>
+        <ion-card-content>
+            <strong>Timestamp:</strong> {{sleep.dateString()}}<br>
+            <strong>Rating logged:</strong> {{sleep.summaryString()}}<br>
+            <strong>Reason:</strong> {{sleep.sleepReasonString()}}<br>
+        </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-tabs>
+          <ion-tab tab="log-overnight-data"></ion-tab>
+          <ion-tab tab="log-sleepiness-data"></ion-tab>
+          <ion-tab tab="view-logged-data"></ion-tab>
+        
+          <ion-tab-bar slot="bottom">
+        
+              <ion-tab-button tab="log-overnight-data" href="home">
+                  <ion-icon name="moon"></ion-icon>
+                <ion-label color="light">Log Overnight Sleep</ion-label>
+              </ion-tab-button>
+    
+              <ion-tab-button tab="log-sleepiness-data" href="log-sleepiness">
+                  <ion-icon name="happy"></ion-icon>
+                  <ion-label color="light">Log Sleepiness</ion-label>
+                </ion-tab-button>
+          
+              <ion-tab-button tab="view-logged-data" href="ViewLoggedData">
+                  <ion-icon name="journal"></ion-icon>
+                <ion-label color="light">View Logs</ion-label>
+              </ion-tab-button>
+        
+          </ion-tab-bar>
+      </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>
